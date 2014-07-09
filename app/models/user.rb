@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
   end
 
   def identifier
-    email
+    username
   end
 
   def pusher_channel_name

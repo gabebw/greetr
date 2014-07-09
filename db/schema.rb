@@ -11,17 +11,19 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140709024350) do
+ActiveRecord::Schema.define(version: 20140709153122) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "users", force: true do |t|
-    t.string   "email"
     t.string   "password_digest"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "username",        null: false
   end
+
+  add_index "users", ["username"], name: "index_users_on_username", unique: true, using: :btree
 
   create_table "yos", force: true do |t|
     t.integer  "sender_id",   null: false
