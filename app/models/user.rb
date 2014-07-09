@@ -1,5 +1,5 @@
 class User < ActiveRecord::Base
-  validates :username, presence: true
+  validates :username, presence: true, uniqueness: true
 
   has_many :yos, foreign_key: :sender_id
 
