@@ -1,4 +1,6 @@
 class User < ActiveRecord::Base
+  validates :username, presence: true
+
   has_many :yos, foreign_key: :sender_id
 
   def self.except(user)
