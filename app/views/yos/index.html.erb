@@ -1,3 +1,5 @@
+<p>NO NEED TO REFRESH THIS PAGE! It loads new Yo!s <em>automatically</em>!</p>
+
 <%= form_for @yo do |form| %>
   <%= form.collection_select(:receiver_id, User.except(current_user), :id, :username) %>
   <%= form.submit "Yo!" %>
