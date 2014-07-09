@@ -1,1 +1,1 @@
-<p><%= yo.sender.email %>: Yo! (<%= in_local_time(yo.created_at) %>)</p>
+<p><%= yo.sender.email %>: Yo! (<%= time_ago_in_words(yo.created_at) %> ago)</p>
