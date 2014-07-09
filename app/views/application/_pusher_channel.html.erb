@@ -1,0 +1,5 @@
+<% if signed_in? %>
+  <%= javascript_tag do %>
+    window.CHANNEL = "yos-<%= current_user.id %>";
+  <% end %>
+<% end %>

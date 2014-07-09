@@ -1,11 +1,4 @@
 $(function(){
-  // Enable pusher logging - don't include this in production
-  Pusher.log = function(message) {
-    if (window.console && window.console.log) {
-      window.console.log(message);
-    }
-  };
-
   var pusher = new Pusher('880e597cf4a3b4d64c95');
   var channel = pusher.subscribe(window.CHANNEL);
   channel.bind('sent', function(data) {

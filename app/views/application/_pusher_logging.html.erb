@@ -1,0 +1,7 @@
+<%= javascript_tag do %>
+  Pusher.log = function(message) {
+    if (window.console && window.console.log) {
+      window.console.log(message);
+    }
+  };
+<% end %>
