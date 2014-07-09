@@ -19,8 +19,8 @@ class YosController < ApplicationController
   end
 
   def push_to_receiver(yo)
-    text = render_to_string(yo)
-    data = { message: text }
+    html = render_to_string(yo)
+    data = { message: html }
     Pusher[yo.receiver.pusher_channel_name].trigger('sent', data)
   end
 end
