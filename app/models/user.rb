@@ -4,4 +4,8 @@ class User < ActiveRecord::Base
   def self.except(user)
     where.not(id: user.id)
   end
+
+  def identifier
+    email
+  end
 end
