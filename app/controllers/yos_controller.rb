@@ -21,6 +21,6 @@ class YosController < ApplicationController
   def push_to_receiver(yo)
     text = render_to_string(yo)
     data = { message: text }
-    Pusher["yos-#{yo.receiver.id}"].trigger('sent', data)
+    Pusher[yo.receiver.pusher_channel_name].trigger('sent', data)
   end
 end

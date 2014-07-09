@@ -8,4 +8,8 @@ class User < ActiveRecord::Base
   def identifier
     email
   end
+
+  def pusher_channel_name
+    "private-yos-#{id}"
+  end
 end

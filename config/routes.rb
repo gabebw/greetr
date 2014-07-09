@@ -4,6 +4,8 @@ Rails.application.routes.draw do
 
   resources :yos, only: [:create]
 
+  resource :pusher_authentication, only: [:create]
+
   get "/sign_in" => "sessions#new", as: :sign_in
   get "/sign_up" => "users#new", as: :sign_up
 
