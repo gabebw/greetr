@@ -6,6 +6,11 @@
   <%= javascript_include_tag 'application' %>
   <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
   <%= csrf_meta_tags %>
+  <% if signed_in? %>
+    <script type="text/javascript">
+      window.CHANNEL = "yos-<%= current_user.id %>";
+    </script>
+  <% end %>
 </head>
 <body>
 

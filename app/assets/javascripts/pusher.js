@@ -7,7 +7,7 @@ $(function(){
   };
 
   var pusher = new Pusher('880e597cf4a3b4d64c95');
-  var channel = pusher.subscribe('yos');
+  var channel = pusher.subscribe(window.CHANNEL);
   channel.bind('sent', function(data) {
     console.log(data);
     var message = data.message;

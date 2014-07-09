@@ -10,7 +10,7 @@ class YosController < ApplicationController
     text = render_to_string(yo)
     data = { message: text }
 
-    Pusher['yos'].trigger('sent', data)
+    Pusher["yos-#{yo.receiver.id}"].trigger('sent', data)
 
     render json: { status: "OK" }
   end
