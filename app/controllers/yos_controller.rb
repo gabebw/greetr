@@ -7,10 +7,7 @@ class YosController < ApplicationController
   def create
     yo = current_user.yos.create(yo_params)
 
-    text = render_to_string(yo)
-    data = { message: text }
-
-    Pusher["yos-#{yo.receiver.id}"].trigger('sent', data)
+    push_to_receiver(yo)
 
     render json: { status: "OK" }
   end
@@ -19,5 +16,11 @@ class YosController < ApplicationController
 
   def yo_params
     params.require(:yo).permit(:receiver_id)
+  end
+
+  def push_to_receiver(yo)
+    text = render_to_string(yo)
+    data = { message: text }
+    Pusher["yos-#{yo.receiver.id}"].trigger('sent', data)
   end
 end
