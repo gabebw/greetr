@@ -6,7 +6,7 @@ class Yo < ActiveRecord::Base
     where(receiver: user)
   end
 
-  def self.chronological
+  def self.newest_first
     order("created_at DESC")
   end
 end

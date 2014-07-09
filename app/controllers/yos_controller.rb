@@ -1,7 +1,7 @@
 class YosController < ApplicationController
   def index
     @yo = Yo.new
-    @yos = Yo.addressed_to(current_user).chronological
+    @yos = Yo.addressed_to(current_user).newest_first
   end
 
   def create
