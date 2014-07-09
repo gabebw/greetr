@@ -3,8 +3,9 @@ $(function(){
   var channel = pusher.subscribe(window.CHANNEL);
   channel.bind('sent', function(data) {
     var message = data.message;
-    var pTag = $("<p>").html(message);
+    var pTag = $("<p>").html(message).hide();
     $("#yos").prepend(pTag);
+    pTag.fadeIn();
   });
 
   $("#new_yo").submit(function(){
