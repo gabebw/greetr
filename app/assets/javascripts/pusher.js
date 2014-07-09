@@ -1,5 +1,5 @@
 $(function(){
-  var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>', { authEndpoint: '/pusher_authentication' });
+  var pusher = new Pusher(window.PUSHER_KEY, { authEndpoint: '/pusher_authentication' });
   var channel = pusher.subscribe(window.CHANNEL);
   channel.bind('sent', function(data) {
     var message = data.message;
