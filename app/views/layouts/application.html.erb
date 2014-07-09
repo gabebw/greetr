@@ -16,8 +16,10 @@
 <h1>Yo!</h1>
 
 <% if signed_in? %>
-  <p>Signed in as <%= current_user.identifier %></p>
-  <%= button_to "Sign out", :session, method: :delete %>
+  <p>
+    Signed in as <%= current_user.identifier %>
+    (<%= link_to "Sign out", :session, method: :delete %>?)
+  </p>
 <% end %>
 
 <%= yield %>
