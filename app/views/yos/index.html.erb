@@ -1,0 +1,10 @@
+<h1>Yo!</h1>
+
+<%= form_for @yo do |form| %>
+  <%= form.collection_select(:receiver_id, User.except(current_user), :id, :email) %>
+  <%= form.submit "Yo!" %>
+<% end %>
+
+<div id="yos">
+  <%= render @yos %>
+</div>
