@@ -3,10 +3,9 @@ class PusherAuthenticationsController < ApplicationController
 
   def create
     if can_subscribe_to_channel?
-      result = Pusher[params[:channel_name]].authenticate(params[:socket_id])
-      render json: result
+      render json: authenticated_response
     else
-      render text: "Forbidden", status: '403'
+      render text: "Forbidden", status: "403"
     end
   end
 
@@ -14,6 +13,10 @@ class PusherAuthenticationsController < ApplicationController
 
   def can_subscribe_to_channel?
     current_user.id == user_id_associated_with_channel
+  end
+
+  def authenticated_response
+    Pusher[params[:channel_name]].authenticate(params[:socket_id])
   end
 
   def user_id_associated_with_channel
