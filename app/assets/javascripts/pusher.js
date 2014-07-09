@@ -4,8 +4,17 @@ $(function(){
   channel.bind('sent', function(data) {
     var message = data.message;
     var pTag = $("<p>").html(message).hide();
+    var yellow = "#ffff99";
+    var white = "#ffffff";
+
     $("#yos").prepend(pTag);
-    pTag.fadeIn();
+    pTag.fadeIn().
+      css({ backgroundColor: yellow }).
+      animate({backgroundColor: white}, {
+        complete: function() {
+          pTag.css({backgroundColor: white});
+        }
+      });
   });
 
   $("#new_yo").submit(function(){
