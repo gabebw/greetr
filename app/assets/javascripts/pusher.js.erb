@@ -1,5 +1,5 @@
 $(function(){
-  var pusher = new Pusher('880e597cf4a3b4d64c95');
+  var pusher = new Pusher('<%= ENV["PUSHER_KEY"] %>');
   var channel = pusher.subscribe(window.CHANNEL);
   channel.bind('sent', function(data) {
     console.log(data);

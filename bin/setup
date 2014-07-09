@@ -1,0 +1,4 @@
+#!/bin/sh
+
+mv .env.sample .env
+echo ".env created! Now change PUSHER_SECRET in .env to the real value"
