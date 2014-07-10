@@ -12,7 +12,6 @@ $(function(){
       });
   };
 
-
   channel.bind('sent', function(data){
     var message = data.message;
     var newGreeting = $("<div>").css({class: "greeting"}).html(message).hide();
