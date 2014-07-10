@@ -1,0 +1,14 @@
+$greeting-spacing: 10px;
+
+form#new_greeting {
+  margin-bottom: $greeting-spacing;
+}
+
+.greeting {
+  letter-spacing: 0.5px;
+  margin-bottom: $greeting-spacing;
+
+  abbr.timeago {
+    font-size: 0.75em;
+  }
+}

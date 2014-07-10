@@ -1,0 +1,5 @@
+#homepage {
+  .cta {
+    @include button(pill);
+  }
+}
