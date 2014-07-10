@@ -19,7 +19,8 @@ $(function(){
 
   $("#new_greeting").submit(function(){
     var data = $(this).serialize();
-    $.post("/greetings", data);
+    var clearInput = function(){ $("#greeting_body").val(""); };
+    $.post("/greetings", data).done(clearInput);
     return false;
   });
 });
