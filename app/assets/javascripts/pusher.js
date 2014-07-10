@@ -7,7 +7,7 @@ $(function(){
     var yellow = "#ffff99";
     var white = "#ffffff";
 
-    $("#yos").prepend(pTag);
+    $("#greetings").prepend(pTag);
     pTag.fadeIn().
       css({ backgroundColor: yellow }).
       animate({backgroundColor: white}, {
@@ -17,9 +17,9 @@ $(function(){
       });
   });
 
-  $("#new_yo").submit(function(){
+  $("#new_greeting").submit(function(){
     var data = $(this).serialize();
-    $.post("/yos", data);
+    $.post("/greetings", data);
     return false;
   });
 });

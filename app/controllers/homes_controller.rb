@@ -3,7 +3,7 @@ class HomesController < ApplicationController
 
   def show
     if signed_in?
-      redirect_to :yos
+      redirect_to :greetings
     else
       render :show
     end

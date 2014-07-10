@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   resources :users, only: [:create]
   resource :home, only: [:show]
 
-  resources :yos, only: [:index, :create]
+  resources :greetings, only: [:index, :create]
 
   resource :pusher_authentication, only: [:create]
 

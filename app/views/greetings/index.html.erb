@@ -1,0 +1,10 @@
+<p>NO NEED TO REFRESH THIS PAGE! It loads new greetings <em>automatically</em>!</p>
+
+<%= form_for @greeting do |form| %>
+  <%= form.collection_select(:receiver_id, User.except(current_user), :id, :username) %>
+  <%= form.submit "Greet!" %>
+<% end %>
+
+<div id="greetings">
+  <%= render @greetings %>
+</div>
