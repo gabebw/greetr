@@ -2,21 +2,26 @@ $(function(){
   var pusher = new Pusher(window.PUSHER_KEY, { authEndpoint: '/pusher_authentication' });
   var channel = pusher.subscribe(window.CHANNEL);
 
-  channel.bind('sent', function(data){
-    var message = data.message;
-    var pTag = $("<p>").html(message).hide();
-    var yellow = "#ffff99";
-    var white = "#ffffff";
-
-    pTag.find("abbr.timeago").timeago();
-    $("#greetings").prepend(pTag);
-    pTag.fadeIn().
+  var highlight = function($element){
+    $element.fadeIn().
       css({ backgroundColor: yellow }).
       animate({backgroundColor: white}, {
         complete: function() {
-          pTag.css({backgroundColor: white});
+          newGreeting.css({backgroundColor: white});
         }
       });
+  };
+
+
+  channel.bind('sent', function(data){
+    var message = data.message;
+    var newGreeting = $("<div>").css({class: "greeting"}).html(message).hide();
+    var yellow = "#ffff99";
+    var white = "#ffffff";
+
+    newGreeting.find("abbr.timeago").timeago();
+    $("#greetings").prepend(newGreeting);
+    highlight(newGreeting);
   });
 
   channel.bind('new_user', function(data){
