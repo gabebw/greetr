@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
   validates :username, presence: true, uniqueness: true
 
-  has_many :greetings, foreign_key: :sender_id
+  has_many :greetings, foreign_key: :sender_id, dependent: :destroy
 
   def self.except(user)
     where.not(id: user.id)
