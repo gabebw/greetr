@@ -6,6 +6,7 @@
   <%= form.label :receiver_id, "to" %>
   <%= form.collection_select(:receiver_id, User.except(current_user), :id, :username) %>
   <%= form.submit "Greet!" %>
+  <span id="status"></span>
 <% end %>
 
 <div id="greetings">
