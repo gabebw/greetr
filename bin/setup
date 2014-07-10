@@ -2,5 +2,5 @@
 
 git remote add heroku git@heroku.com:send-a-yo.git
 
-mv .env.example .env
+cp .env.example .env
 echo ".env created! Now change PUSHER_SECRET in .env to the real value"
