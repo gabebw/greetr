@@ -1,1 +1,6 @@
-<p><%= greeting.sender.identifier %>: <%= greeting.body %> (<%= time_ago_in_words(greeting.created_at) %> ago)</p>
+<p>
+  <%= greeting.sender.identifier %>: <%= greeting.body %>
+  (<abbr class="timeago" title="<%= greeting.created_at.iso8601 %>">
+      <%= time_ago_in_words(greeting.created_at) %> ago
+    </abbr>)
+</p>

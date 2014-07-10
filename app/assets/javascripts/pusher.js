@@ -8,6 +8,7 @@ $(function(){
     var yellow = "#ffff99";
     var white = "#ffffff";
 
+    pTag.find("abbr.timeago").timeago();
     $("#greetings").prepend(pTag);
     pTag.fadeIn().
       css({ backgroundColor: yellow }).
