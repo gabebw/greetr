@@ -8,11 +8,15 @@ class User < ActiveRecord::Base
     where.not(id: user.id)
   end
 
+  def self.pusher_channel_prefix
+    "private-greetings-"
+  end
+
   def identifier
     username
   end
 
   def pusher_channel_name
-    "private-greetings-#{id}"
+    "#{self.class.pusher_channel_prefix}#{id}"
   end
 end
