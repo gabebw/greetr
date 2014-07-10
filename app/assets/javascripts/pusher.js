@@ -18,4 +18,9 @@ $(function(){
       });
   });
 
+  channel.bind('new_user', function(data){
+    var user = data.message;
+    var newOption = $("<option>").prop("value", user.id).text(user.username);
+    $("#greeting_receiver_id").append(newOption);
+  });
 });
