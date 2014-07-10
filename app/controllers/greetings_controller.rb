@@ -15,7 +15,7 @@ class GreetingsController < ApplicationController
   private
 
   def greeting_params
-    params.require(:greeting).permit(:receiver_id)
+    params.require(:greeting).permit(:body, :receiver_id)
   end
 
   def push_to_receiver(greeting)

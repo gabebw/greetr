@@ -1,6 +1,9 @@
 <p>NO NEED TO REFRESH THIS PAGE! It loads new greetings <em>automatically</em>!</p>
 
 <%= form_for @greeting do |form| %>
+  <%= form.label :body, "Send" %>
+  <%= form.text_field :body %>
+  <%= form.label :receiver_id, "to" %>
   <%= form.collection_select(:receiver_id, User.except(current_user), :id, :username) %>
   <%= form.submit "Greet!" %>
 <% end %>

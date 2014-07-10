@@ -1,1 +1,1 @@
-<p><%= greeting.sender.identifier %>: Hey! (<%= time_ago_in_words(greeting.created_at) %> ago)</p>
+<p><%= greeting.sender.identifier %>: <%= greeting.body %> (<%= time_ago_in_words(greeting.created_at) %> ago)</p>
