@@ -11,4 +11,8 @@ class Greeting < ActiveRecord::Base
   def self.newest_first
     order("created_at DESC")
   end
+
+  def self.for_homepage_of(user)
+    addressed_to(user).newest_first.includes(:sender)
+  end
 end

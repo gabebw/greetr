@@ -1,7 +1,7 @@
 class GreetingsController < ApplicationController
   def index
     @greeting = Greeting.new
-    @greetings = Greeting.addressed_to(current_user).newest_first
+    @greetings = Greeting.for_homepage_of(current_user)
   end
 
   def create
