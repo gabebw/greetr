@@ -20,6 +20,6 @@ class PusherAuthenticationsController < ApplicationController
   end
 
   def user_id_associated_with_channel
-    params[:channel_name].sub(User.pusher_channel_prefix, "").to_i
+    params[:channel_name].sub(User::PUSHER_CHANNEL_PREFIX, "").to_i
   end
 end
