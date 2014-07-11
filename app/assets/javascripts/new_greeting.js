@@ -4,7 +4,6 @@ $(function(){
     var $status = $("#status");
 
     var successfullySent = function(){
-      $("#greeting_body").val("");
       $status.hide().text("Sent!").fadeIn();
     };
 
