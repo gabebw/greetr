@@ -7,7 +7,7 @@
   <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <%= render "pusher_channel" %>
+  <%= render "javascript_global_variables" %>
   <% unless Rails.env.production? %>
     <%= render "pusher_logging" %>
   <% end %>
@@ -17,6 +17,7 @@
 <h1 id="logo">greetr</h1>
 
 <% if signed_in? %>
+  <p id="new_app_version_alert"></p>
   <p>
     Signed in as <%= current_user.identifier %>
     (<%= link_to "Sign out", :session, method: :delete %>?)

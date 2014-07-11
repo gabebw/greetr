@@ -2,19 +2,6 @@ $(function(){
   var pusher = new Pusher(window.PUSHER_KEY, { authEndpoint: '/pusher_authentication' });
   var channel = pusher.subscribe(window.PUSHER_CHANNEL_NAME);
 
-  var highlight = function($element){
-    var yellow = "#ffff99";
-    var white = "#ffffff";
-
-    $element.fadeIn().
-      css({ backgroundColor: yellow }).
-      animate({backgroundColor: white}, {
-        complete: function() {
-          $element.css({backgroundColor: white});
-        }
-      });
-  };
-
   channel.bind('sent', function(data){
     var message = data.message;
     var newGreeting = $("<div>").css({class: "greeting"}).html(message).hide();
@@ -23,6 +10,14 @@ $(function(){
     $("#greetings").prepend(newGreeting);
     titleNotification.increaseNumberOfNotifications();
     highlight(newGreeting);
+  });
+
+  channel.bind('new_app_version', function(data){
+    var newAppVersion = data.new_version;
+    if( newAppVersion > window.APP_VERSION ){
+      window.APP_VERSION = newAppVersion;
+      $("#new_app_version_alert").text("This app was just updated! Refresh the page for some cool new features.");
+    }
   });
 
   channel.bind('new_user', function(data){
