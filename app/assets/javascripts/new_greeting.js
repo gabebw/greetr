@@ -1,5 +1,5 @@
 $(function(){
-  $("#new_greeting").submit(function(){
+  var onSubmit = function(){
     var data = $(this).serialize();
     var $status = $("#status");
 
@@ -15,5 +15,11 @@ $(function(){
       done(successfullySent).
       fail(unsuccessfullySent);
     return false;
-  });
+  };
+
+  var oneSecond = 1000;
+  var waitTime = 5 * oneSecond;
+  var throttledOnSubmit = _.throttle(onSubmit, waitTime)
+
+  $("#new_greeting").submit(throttledOnSubmit);
 });
