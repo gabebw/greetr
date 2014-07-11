@@ -9,7 +9,7 @@
         User.except(current_user),
         :id,
         :username,
-        selected: current_user.most_recent_correspondent.id)
+        selected: current_user.most_recent_correspondent_id)
   %>
   <%= form.submit "Greet!" %>
   <span id="status"></span>

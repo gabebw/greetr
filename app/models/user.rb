@@ -20,7 +20,13 @@ class User < ActiveRecord::Base
     "#{self.class.pusher_channel_prefix}#{id}"
   end
 
-  def most_recent_correspondent
-    greetings.newest_first.first.receiver
+  def most_recent_correspondent_id
+    most_recent_greeting.receiver_id
+  end
+
+  private
+
+  def most_recent_greeting
+    greetings.newest_first.first || Greeting.new
   end
 end
