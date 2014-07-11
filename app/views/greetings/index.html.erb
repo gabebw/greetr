@@ -4,7 +4,13 @@
   <%= form.label :body, "Send" %>
   <%= form.text_field :body %>
   <%= form.label :receiver_id, "to" %>
-  <%= form.collection_select(:receiver_id, User.except(current_user), :id, :username) %>
+  <%= form.collection_select(
+        :receiver_id,
+        User.except(current_user),
+        :id,
+        :username,
+        selected: current_user.most_recent_correspondent.id)
+  %>
   <%= form.submit "Greet!" %>
   <span id="status"></span>
 <% end %>

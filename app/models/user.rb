@@ -19,4 +19,8 @@ class User < ActiveRecord::Base
   def pusher_channel_name
     "#{self.class.pusher_channel_prefix}#{id}"
   end
+
+  def most_recent_correspondent
+    greetings.newest_first.first.receiver
+  end
 end
