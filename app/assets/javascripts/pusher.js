@@ -3,11 +3,14 @@ $(function(){
   var channel = pusher.subscribe(window.CHANNEL);
 
   var highlight = function($element){
+    var yellow = "#ffff99";
+    var white = "#ffffff";
+
     $element.fadeIn().
       css({ backgroundColor: yellow }).
       animate({backgroundColor: white}, {
         complete: function() {
-          newGreeting.css({backgroundColor: white});
+          $element.css({backgroundColor: white});
         }
       });
   };
@@ -15,8 +18,6 @@ $(function(){
   channel.bind('sent', function(data){
     var message = data.message;
     var newGreeting = $("<div>").css({class: "greeting"}).html(message).hide();
-    var yellow = "#ffff99";
-    var white = "#ffffff";
 
     newGreeting.find("abbr.timeago").timeago();
     $("#greetings").prepend(newGreeting);
