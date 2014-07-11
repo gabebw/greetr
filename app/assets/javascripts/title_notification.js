@@ -7,11 +7,13 @@ var TitleNotification = function(){
 TitleNotification.prototype.increaseNumberOfNotifications = function(){
   if( this.blurred ){
     this.numberOfNotifications += 1;
-    console.log("BLURRED!");
     document.title = "(" + this.numberOfNotifications + ") " + this.defaultTitle;
-  } else {
-    console.log("not blurred!");
   }
+}
+
+TitleNotification.prototype.onFocus = function(){
+  this.clear();
+  this.blurred = false;
 }
 
 TitleNotification.prototype.clear = function(){
@@ -26,7 +28,7 @@ TitleNotification.prototype.markAsBlurred = function(){
 var titleNotification = new TitleNotification();
 
 $(window).focus(function(){
-  titleNotification.clear();
+  titleNotification.onFocus();
 });
 
 $(window).blur(function(){
