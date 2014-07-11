@@ -5,11 +5,15 @@ class GreetingsController < ApplicationController
   end
 
   def create
-    greeting = current_user.greetings.create(greeting_params)
+    greeting = current_user.greetings.new(greeting_params)
 
-    push_to_receiver(greeting)
+    if greeting.save
+      push_to_receiver(greeting)
 
-    render json: { status: "OK" }
+      render json: { status: "OK" }
+    else
+      render json: { status: "Failed" }, status: 422
+    end
   end
 
   private
