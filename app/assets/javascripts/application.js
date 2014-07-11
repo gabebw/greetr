@@ -13,4 +13,5 @@
 //= require jquery
 //= require jquery_ujs
 //= require jquery.timeago
+//= require title_notification
 //= require_tree .

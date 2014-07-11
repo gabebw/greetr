@@ -21,6 +21,7 @@ $(function(){
 
     newGreeting.find("abbr.timeago").timeago();
     $("#greetings").prepend(newGreeting);
+    titleNotification.increaseNumberOfNotifications();
     highlight(newGreeting);
   });
 
