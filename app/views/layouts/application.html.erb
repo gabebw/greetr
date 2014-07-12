@@ -32,7 +32,9 @@
 </header>
 
 <section id="container">
-  <p class="instructions">Remember: new greetings will appear automatically.</p>
+  <% if signed_in? %>
+    <p class="instructions">Remember: new greetings will appear automatically.</p>
+  <% end %>
   <%= yield %>
 </section>
 
