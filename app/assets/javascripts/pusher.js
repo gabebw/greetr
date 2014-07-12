@@ -16,7 +16,10 @@ $(function(){
     var newAppVersion = data.new_version;
     if( newAppVersion > window.APP_VERSION ){
       window.APP_VERSION = newAppVersion;
-      $("#new_app_version_alert").text("This app was just updated! Refresh the page for some cool new features.");
+      var alertTag = $("<p>").
+        css({id: "new_app_version_alert"}).
+        text("Greetr was just updated! Refresh the page for some cool new features.");
+      $("#alerts").html(alertTag);
     }
   });
 

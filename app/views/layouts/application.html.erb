@@ -14,10 +14,13 @@
 </head>
 <body>
 
+<% if signed_in? %>
+  <div id="app-alerts"></div>
+<% end %>
+
 <h1 id="logo">greetr</h1>
 
 <% if signed_in? %>
-  <p id="new_app_version_alert"></p>
   <p>
     Signed in as <%= current_user.identifier %>
     (<%= link_to "Sign out", :session, method: :delete %>?)
