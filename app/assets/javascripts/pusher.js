@@ -12,17 +12,6 @@ $(function(){
     highlight(newGreeting);
   });
 
-  channel.bind('new_app_version', function(data){
-    var newAppVersion = data.new_version;
-    if( newAppVersion > window.APP_VERSION ){
-      window.APP_VERSION = newAppVersion;
-      var alertTag = $("<p>").
-        css({id: "new_app_version_alert"}).
-        text("Greetr was just updated! Refresh the page for some cool new features.");
-      $("#alerts").html(alertTag);
-    }
-  });
-
   channel.bind('new_user', function(data){
     var user = data.message;
     var newOption = $("<option>").prop("value", user.id).text(user.username);

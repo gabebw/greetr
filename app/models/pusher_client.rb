@@ -21,12 +21,4 @@ class PusherClient
       Pusher[channel_name(user.id)].trigger("new_user", data)
     end
   end
-
-  def self.tell_everyone_about_new_app_version(new_version)
-    data = { new_version: new_version }
-
-    User.find_each do |user|
-      Pusher[channel_name(user.id)].trigger("new_app_version", data)
-    end
-  end
 end

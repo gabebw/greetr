@@ -7,16 +7,12 @@
   <script src="//js.pusher.com/2.2/pusher.min.js" type="text/javascript"></script>
   <%= csrf_meta_tags %>
   <meta name="viewport" content="initial-scale=1, maximum-scale=1">
-  <%= render "javascript_global_variables" %>
+  <%= render "pusher_channel" %>
   <% unless Rails.env.production? %>
     <%= render "pusher_logging" %>
   <% end %>
 </head>
 <body>
-
-<% if signed_in? %>
-  <div id="app-alerts"></div>
-<% end %>
 
 <header>
 <% if signed_in? %>
