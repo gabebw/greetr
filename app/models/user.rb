@@ -1,6 +1,4 @@
 class User < ActiveRecord::Base
-  PUSHER_CHANNEL_PREFIX = "private-greetings-"
-
   validates :username, presence: true, uniqueness: true
   validates :password_digest, presence: true
 
@@ -12,10 +10,6 @@ class User < ActiveRecord::Base
 
   def identifier
     username
-  end
-
-  def pusher_channel_name
-    "#{PUSHER_CHANNEL_PREFIX}#{id}"
   end
 
   def most_recent_correspondent_id

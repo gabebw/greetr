@@ -1,7 +1,7 @@
 <% if signed_in? %>
   <%= javascript_tag do %>
     window.PUSHER_KEY = "<%= ENV.fetch("PUSHER_KEY") %>";
-    window.PUSHER_CHANNEL_NAME = "<%= current_user.pusher_channel_name %>";
+    window.PUSHER_CHANNEL_NAME = "<%= PusherClient.channel_name(current_user.id) %>";
     window.APP_VERSION = "<%= APP_VERSION %>";
   <% end %>
 <% end %>

@@ -24,7 +24,7 @@ class GreetingsController < ApplicationController
 
   def push_to_receiver(greeting)
     html = render_to_string(greeting)
-    data = { message: html }
-    Pusher[greeting.receiver.pusher_channel_name].trigger('sent', data)
+
+    PusherClient.send_greeting_to(greeting.receiver_id, html)
   end
 end

@@ -20,10 +20,7 @@ class UsersController < ApplicationController
   private
 
   def tell_everyone_about_the_new_user
-    data = { message: { username: @user.username, id: @user.id } }
-    User.except(@user).find_each do |user|
-      Pusher[user.pusher_channel_name].trigger("new_user", data)
-    end
+    PusherClient.tell_everyone_about_the_new_user(@user)
   end
 
   def user_params
