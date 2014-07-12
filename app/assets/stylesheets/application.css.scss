@@ -14,6 +14,8 @@
  */
 
 @import "bourbon";
+// Bitters should be after Bourbon but before Neat
+@import "base/base";
 @import "neat";
 
 @import "variables";
