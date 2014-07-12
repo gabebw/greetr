@@ -14,7 +14,7 @@ class PusherClient
     Pusher[channel_name(user_id)].trigger('sent', data)
   end
 
-  def self.tell_everyone_about_the_new_user(user)
+  def self.tell_everyone_else_about_the_new_user(user)
     data = { message: { username: user.username, id: user.id } }
 
     User.except(user).find_each do |user|

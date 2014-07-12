@@ -10,7 +10,7 @@ class UsersController < ApplicationController
 
     if @user.valid?
       sign_in(@user)
-      tell_everyone_about_the_new_user
+      PusherClient.tell_everyone_else_about_the_new_user(@user)
       redirect_to root_path
     else
       render :new
@@ -18,10 +18,6 @@ class UsersController < ApplicationController
   end
 
   private
-
-  def tell_everyone_about_the_new_user
-    PusherClient.tell_everyone_about_the_new_user(@user)
-  end
 
   def user_params
     params.require(:user).permit(:username, :password)

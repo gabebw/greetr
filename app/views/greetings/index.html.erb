@@ -3,7 +3,7 @@
   <%= form.label :receiver_id, "to" %>
   <%= form.collection_select(
         :receiver_id,
-        User.except(current_user),
+        User.all,
         :id,
         :username,
         selected: current_user.most_recent_correspondent_id)
