@@ -71,6 +71,7 @@ GEM
     neat (1.5.1)
       bourbon (>= 3.1)
       sass (~> 3.2.19)
+    newrelic_rpm (3.8.1.221)
     pg (0.17.1)
     polyglot (0.3.5)
     pusher (0.12.0)
@@ -148,6 +149,7 @@ DEPENDENCIES
   jquery-rails
   monban (~> 0.1.0)
   neat
+  newrelic_rpm
   pg
   pusher
   rails (= 4.1.1)
