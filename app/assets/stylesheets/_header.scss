@@ -1,0 +1,21 @@
+header {
+  $right-columns: 4;
+
+  h1 {
+    @include span-columns($grid-columns - $right-columns);
+  }
+
+  .current-user {
+    @include shift($grid-columns - $right-columns);
+    padding-top: $base-line-height - 0.7em;
+  }
+
+  .instructions {
+    //@include span-columns($grid-columns);
+  }
+}
+
+#container {
+  @include span-columns($grid-columns);
+}
+

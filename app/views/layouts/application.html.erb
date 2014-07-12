@@ -18,16 +18,23 @@
   <div id="app-alerts"></div>
 <% end %>
 
-<h1 id="logo">greetr</h1>
 
+<header>
 <% if signed_in? %>
-  <p>
-    Signed in as <%= current_user.identifier %>
+  <h1 id="logo">greetr</h1>
+  <div class="current-user">
+    <%= current_user.identifier %>
     (<%= link_to "Sign out", :session, method: :delete %>?)
-  </p>
+  </div>
+<% else %>
+  <h1 id="logo">greetr</h1>
 <% end %>
+</header>
 
-<%= yield %>
+<section id="container">
+  <p class="instructions">Remember: new greetings will appear automatically.</p>
+  <%= yield %>
+</section>
 
 </body>
 </html>

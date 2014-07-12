@@ -1,12 +1,22 @@
-$greeting-spacing: 10px;
-
 form#new_greeting {
-  margin-bottom: $greeting-spacing;
+  margin-bottom: 3em;
+
+  label, select {
+    display: inline;
+  }
+
+  #greeting_body {
+    width: 50%;
+  }
+
+  input {
+    display: block;
+  }
 }
 
 .greeting {
   letter-spacing: 0.5px;
-  margin-bottom: $greeting-spacing;
+  margin-bottom: 10px;
 
   abbr.timeago {
     font-size: 0.75em;
