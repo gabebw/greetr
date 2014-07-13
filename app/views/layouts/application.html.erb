@@ -15,14 +15,12 @@
 <body>
 
 <header>
-<% if signed_in? %>
   <h1 id="logo">greetr</h1>
+<% if signed_in? %>
   <div class="current-user">
     <%= current_user.identifier %>
     (<%= link_to "Sign out", :session, method: :delete %>?)
   </div>
-<% else %>
-  <h1 id="logo">greetr</h1>
 <% end %>
 </header>
 
