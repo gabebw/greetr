@@ -5,7 +5,7 @@ class PusherAuthenticationsController < ApplicationController
     if can_subscribe_to_channel?
       render json: authenticated_response
     else
-      render text: "Forbidden", status: "403"
+      render text: "Unauthorized", status: "401"
     end
   end
 
