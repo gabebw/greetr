@@ -1,5 +1,13 @@
 #homepage {
   .cta {
-    @include button(pill);
+    $cta-color: #7fbf4d;
+
+    @extend %button;
+    background-color: $cta-color;
+
+    &:hover {
+      background-color: darken($cta-color, 15);
+      color: white;
+    }
   }
 }
