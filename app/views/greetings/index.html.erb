@@ -8,8 +8,10 @@
         :username,
         selected: current_user.most_recent_correspondent_id)
   %>
-  <%= form.submit "Send!" %>
-  <span id="status"></span>
+  <div>
+    <%= form.submit "Send!" %>
+    <span id="status"></span>
+  </div>
 <% end %>
 
 <div id="greetings">
