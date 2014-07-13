@@ -1,5 +1,6 @@
 header {
   $right-columns: 4;
+  margin-bottom: 2rem;
 
   h1 {
     @include span-columns($grid-columns - $right-columns);
@@ -8,10 +9,6 @@ header {
   .current-user {
     @include shift($grid-columns - $right-columns);
     padding-top: $base-line-height - 0.7em;
-  }
-
-  .instructions {
-    //@include span-columns($grid-columns);
   }
 }
 
