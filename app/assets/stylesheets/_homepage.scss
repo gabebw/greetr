@@ -1,13 +1,32 @@
 #homepage {
+  @include span-columns(6);
+  @include shift(3);
+
   .cta {
     $cta-color: #7fbf4d;
 
     @extend %button;
     background-color: $cta-color;
 
+    @include media($medium-screen-up) {
+      padding: 0.75em 3.5em;
+
+      &:first-child {
+        margin: 0 3em;
+      }
+    }
+
     &:hover {
       background-color: darken($cta-color, 15);
       color: white;
     }
+  }
+
+  section {
+    margin-bottom: 2em;
+  }
+
+  ul {
+    @extend %default-ul;
   }
 }

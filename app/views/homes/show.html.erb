@@ -1,10 +1,25 @@
 <section id="homepage">
-  <h2>Greet your friends, <em>instantly</em></h2>
+  <section>
+    <h2>Greet your friends, <em>instantly</em></h2>
+  </section>
 
-  <p>Greetr lets you send short greetings to your friends and have it instantly show up on their computer.</p>
-  <p>Works great on your computer or on your phone.</p>
+  <section id="features">
+    <ul>
+      <li>New greetings pop up instantly without reloading the page</li>
+      <li>Works great on your phone</li>
+      <li>
+        As users sign up, their usernames are added to the dropdown via Pusher so
+        that you can immediately greet them without reloading the page
+      </li>
+      <li>
+        If the Greetr tab does not have focus, the title changes to show the
+        number of unread greetings (e.g. <code>(2) Greetr</code>)
+      </li>
+    </ul>
+  </section>
 
-  <%= link_to "Sign in", :sign_in, class: "cta" %>
-  or
-  <%= link_to "Sign up", :sign_up, class: "cta" %>
+  <section id="buttons">
+    <%= link_to "Sign in", :sign_in, class: "cta" %>
+    <%= link_to "Sign up", :sign_up, class: "cta" %>
+  </section>
 </section>
