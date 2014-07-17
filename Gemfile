@@ -16,3 +16,7 @@ gem "rails_autolink"
 gem "sass-rails", "~> 4.0.3"
 gem "uglifier", ">= 1.3.0"
 gem "unicorn"
+
+group :development do
+  gem "bullet"
+end
